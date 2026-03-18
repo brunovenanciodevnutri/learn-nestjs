@@ -1,12 +1,17 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('bankAccounts') // Posso definir a rota aqui, exemplo /bankAccounts]
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('customers') // Método da solicitação CRUD || Posso definir a rota ou subrotas aqui, exemplo /bankAccounts/customers]
   getHello(): string {
-    return this.appService.getHello();
+    return 'Hello World!';
+  }
+
+  @Get('exemplo')
+  exemplo() {
+    return this.appService.solucionaExemplo();
   }
 }
